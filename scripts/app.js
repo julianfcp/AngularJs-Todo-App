@@ -1,6 +1,10 @@
 angular.module("todoListApp", [])
 
-.controller('mainCtrl', function($scope) {
+.controller('mainCtrl', function($scope, dataService) {
+
+  $scope.helloConsole = dataService.helloConsole;
+
+
   $scope.helloWorld = function() {
     console.log("Hello there! This the helloWorld controller function, in the mainCtrl!");
   };
@@ -14,4 +18,11 @@ angular.module("todoListApp", [])
     {"name": "Drink more beer"},
   ]
   
+})
+
+.service('dataService', function() {
+    this.helloConsole = function () {
+        console.log('this is the hello console service!');
+    }
+
 });
