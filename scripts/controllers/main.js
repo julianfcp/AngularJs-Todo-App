@@ -10,7 +10,8 @@ angular.module("todoListApp") // not adding second parameter ( [] )
   // add new task to the list using push function
   $scope.addTodo = function() {
     var todo = {name: "This is a new Todo"};
-    $scope.todos.push(todo);
+    //$scope.todos.push(todo); // this adds todos to the end of the list
+    $scope.todos.unshift(todo); // this adds todos to the beginning of the list
   };
 
   // sends callback function so scope.todos loads its values after
@@ -27,5 +28,15 @@ angular.module("todoListApp") // not adding second parameter ( [] )
   $scope.saveTodo = function(todo){
     dataService.saveTodo(todo);
   };
+  $scope.saveTodos = function(todo){
+    var filteredTodos = $scope.todos.filter(function(todo) {
+        if(todo.edited){
+            return todo; // returns todos which has been edited
+        }
+    });
+    $scope.todosSaved = filteredTodos;
+    dataService.saveTodos(filteredTodos);
+  };
+
 
 });

@@ -1,0 +1,30 @@
+<div class="list">
+    <!-- ngRepeat
+         ngclass: update the top margin enabling editing-item
+         ngModel: todo variables mapped with scope.todos json array
+         ngClick: fires functions and toggles editing variable
+         ngShow: shows input when editing variable is true
+         ngBlur: sets editing variable to false when clicking outside of the box
+         ng-hide: hides lable when editing
+         ng-change: toggles todo.edited variable to true, so ngclass sets css variable
+         completed  -- when input ng-mode="todocompleted is true ng-class sets css property
+         ng-repeat oderBy orders todos by complete variable, (if completed is true or false)
+         ng-init initialize varialble completed to false
+    -->
+    <div class="add">
+        <a href="" ng-click="addTodo()">+ Add a new Task  </a>
+        <a href="" ng-click="saveTodos(todos)"> - Save {{todosSaved}}</a>
+    </div>
+    <div ng-repeat="todo in todos | orderBy:'completed'"
+         class="item" ng-class="{'editing-item': editing, 'edited': todo.edited, 'completed': todo.completed}"
+         ng-init="todo.completed = false">
+        <input ng-model="todo.completed" type="checkbox"/>
+        <label ng-hide="editing" ng-click="editing=!editing">{{todo.name}}</label>
+        <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
+        <div class="actions">
+            <!-- Edit single todo <a href="" ng-click="editing=!editing">Edit</a> -->
+            <!-- Save single Todo <a href="" ng-click="saveTodo(todo)">Save</a> -->
+            <a href="" ng-click="deleteTodo(todo, $index)" class="delete">delete</a>
+        </div>
+    </div>
+</div>
