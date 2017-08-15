@@ -14,8 +14,8 @@ angular.module("todoListApp") // not adding second parameter ( [] )
     this.saveTodo = function(todo){
             console.log("The " + todo.name + " todo has been saved!");
      };
-    this.saveTodos = function(filteredTodos){
-            console.log(filteredTodos.lenght + " todos has been saved!");
+    this.saveTodos1 = function(filteredTodos){
+            console.log(filteredTodos.length + " Todos has ben saved!");
     };
 
 

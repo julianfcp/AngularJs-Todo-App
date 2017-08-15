@@ -35,7 +35,7 @@ angular.module("todoListApp") // not adding second parameter ( [] )
         }
     });
     $scope.todosSaved = filteredTodos;
-    dataService.saveTodos(filteredTodos);
+    dataService.saveTodos1(filteredTodos);
   };
 
 

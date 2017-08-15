@@ -13,7 +13,7 @@
     -->
     <div class="add">
         <a href="" ng-click="addTodo()">+ Add a new Task  </a>
-        <a href="" ng-click="saveTodos(todos)"> - Save {{todosSaved}}</a>
+        <a href="" ng-click="saveTodos(todos)"> - Save {{todosSaved.length}}</a>
     </div>
     <div ng-repeat="todo in todos | orderBy:'completed'"
          class="item" ng-class="{'editing-item': editing, 'edited': todo.edited, 'completed': todo.completed}"
